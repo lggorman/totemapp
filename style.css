@@ -1,0 +1,36 @@
+
+#totemapp {
+	margin-top:50px;
+	margin-left:50px;
+}
+
+.single-project, .single-section {
+	background-color: #eee; 
+	color:#555; 
+	height:200px; 
+	width:200px; 
+	float:left; 
+	margin:20px 20px 0 0; 
+	padding:0 20px;
+}
+
+.single-project:hover {
+	background-color: #ccc;
+}
+
+#open-project {
+	display:block;
+}
+
+#add-new, #add-new-section {
+	background-color:#428bca;
+	color:#fff;
+	padding:7px;
+	border:none;
+}
+
+#new-project, #new-section {
+	height:35px;
+	width:300px;
+	margin-bottom:25px;
+}

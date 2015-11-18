@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Testing</title>
+  <!-- load the bootstrap stylesheet -->
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- load the libraries we need -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+  
+
+</head>
+<body>
+
+<section id="totemapp">
+
+  <!-- <button id="new-project">Make a new project</button> --> 
+  <section id="projects">
+    <input id="new-project"><button id="add-new">Add New</button>
+    <div id="project-list">
+    </div>
+  </section>
+
+</section>
+
+
+  <!-- templates -->
+  <script type="text/template" id="single-project-template">
+    <h2><%- title %></h2>
+    <section id="sections">
+      <input id="new-section"><button id="add-new-section">Add New</button>
+      <div id="section-list">
+      </div>
+    </section>
+  </script>
+  <script type="text/template" id="project-template">
+      <a href="#" id="open-project">
+        <div class="single-project"><h2><%- title %></h3><br><a href="#" id="delete-project">Delete</a></div>
+      </a>
+  </script>
+  <script type="text/template" id="section-template">
+      <div class="single-section"><h2><%- title %></h2><br><a href="#" id="delete-section">Delete</a></div>
+  </script>
+
+  <script type="text/javascript" src="models.js"></script>
+  <script type="text/javascript" src="views.js"></script>
+  <script type="text/javascript">
+
+  $(function(){
+
+    new app.AppView();   
+
+  });
+
+  </script>
+</body>
+</html>
