@@ -40,6 +40,17 @@
       </section>
     </script>
 
+    <!-- Single Section Template -->
+    <!-- ===================================== -->
+    <script type="text/template" id="single-section-template">
+      <h2><%- title %></h2>
+      <section id="versions">
+        <input id="new-version" type="file"><button id="add-new-version">Add New</button>
+        <div id="version-list">
+        </div>
+      </section>
+    </script>
+
     <!-- Project Template -->
     <!-- ===================================== -->
     <script type="text/template" id="project-template">
@@ -58,10 +69,17 @@
       </div>
     </script>
 
+    <!-- Version Template -->
+    <!-- ===================================== -->
+    <script type="text/template" id="version-template">
+      <div class="single-version"><br><a href="#" id="delete-version">Delete</a></div>
+    </script>
+
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/underscore/underscore.js"></script>
     <script src="/bower_components/backbone/backbone.js"></script>
+    <script type="text/javascript" src="backbone-model-file-upload.js"></script>
     <!-- endbower -->
 
     <!-- build:js build/js/build.app.js -->

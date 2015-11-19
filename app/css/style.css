@@ -9,7 +9,7 @@
 	margin-left:50px;
 }
 
-.single-project, .single-section {
+.single-project, .single-section, .single-version {
 	background-color: #eee;
 	color:#555;
 	height:200px;
@@ -19,22 +19,22 @@
 	padding:0 20px;
 }
 
-.single-project:hover {
+.single-project:hover, .single-section:hover {
 	background-color: #ccc;
 }
 
-#open-project {
+#open-project, #open-section {
 	display:block;
 }
 
-#add-new, #add-new-section {
+#add-new, #add-new-section, #add-new-version {
 	background-color:#428bca;
 	color:#fff;
 	padding:7px;
 	border:none;
 }
 
-#new-project, #new-section {
+#new-project, #new-section, #new-version {
 	height:35px;
 	width:300px;
 	margin-bottom:25px;
