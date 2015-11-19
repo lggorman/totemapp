@@ -2,6 +2,11 @@ var app = app || {};
 
 app.Projects = new ProjectList();
 
+/**
+* Single Project View
+* @param  {}
+* @return {}
+*/
 app.SingleProjectView = Backbone.View.extend({
   el: '#totemapp',
 
@@ -34,15 +39,15 @@ app.SingleProjectView = Backbone.View.extend({
   createOnEnter: function( event ) {
     var sectionName = $('#new-section').val();
     var projectId = this.model.get('id');
-    app.Sections.create( { 
-      project_id : projectId, 
+    app.Sections.create( {
+      project_id : projectId,
       title : sectionName
     } );
     $('#new-section').val('');
-  }, 
+  },
 
   render: function() {
-    this.$el.append(this.template (this.model.toJSON()) ); 
+    this.$el.append(this.template (this.model.toJSON()) );
     app.Sections.each(function(item) {
       this.renderSection(item);
     }, this);
@@ -57,8 +62,13 @@ app.SingleProjectView = Backbone.View.extend({
 
 });
 
+/**
+* Project View
+* @param  {}
+* @return {}
+*/
 app.ProjectView = Backbone.View.extend({
-  
+
   tagname: 'li',
 
   template: _.template( $('#project-template').html() ),
@@ -95,6 +105,11 @@ app.ProjectView = Backbone.View.extend({
 
 });
 
+/**
+* App View
+* @param  {}
+* @return {}
+*/
 app.AppView = Backbone.View.extend({
   el: '#totemapp',
 
@@ -123,7 +138,7 @@ app.AppView = Backbone.View.extend({
   createOnEnter: function( event ) {
     app.Projects.create( { title : this.$input.val() } );
     this.$input.val('');
-  }, 
+  },
 
   render: function() {
     app.Projects.each(function(item) {
@@ -140,8 +155,13 @@ app.AppView = Backbone.View.extend({
 
 });
 
+/**
+* Section View
+* @param  {}
+* @return {}
+*/
 app.SectionView = Backbone.View.extend({
-  
+
   tagname: 'li',
 
   template: _.template( $('#section-template').html() ),

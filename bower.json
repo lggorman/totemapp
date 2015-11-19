@@ -1,0 +1,23 @@
+{
+  "name": "totemapp",
+  "homepage": "https://github.com/lggorman/totemapp",
+  "authors": [
+    "Linda Gorman <linda.gorman@upstatement.com>",
+    "Regis Biron <regis.biron@upstatement.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "backbone": "~1.2.3"
+  }
+}

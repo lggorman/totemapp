@@ -1,3 +1,8 @@
+/* ==========================================================================
+
+   (^‿^) Makin' Designs (^‿^)
+
+   ========================================================================== */
 
 #totemapp {
 	margin-top:50px;
@@ -5,12 +10,12 @@
 }
 
 .single-project, .single-section {
-	background-color: #eee; 
-	color:#555; 
-	height:200px; 
-	width:200px; 
-	float:left; 
-	margin:20px 20px 0 0; 
+	background-color: #eee;
+	color:#555;
+	height:200px;
+	width:200px;
+	float:left;
+	margin:20px 20px 0 0;
 	padding:0 20px;
 }
 
