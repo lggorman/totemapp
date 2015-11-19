@@ -1,17 +1,23 @@
+var app = app || {};
 /**
 * Routes
 * @param  {}
 * @return {}
 */
-var AppRouter = Backbone.Router.extend({
+  app.AppRouter = Backbone.Router.extend({
 
     routes:{
-        'projects/:id' : 'singleProject'
+        'projects/:id' : 'singleProject',
+        'test' : 'test'
     },
 
     initialize: function(){
       // console.log('initialize app');
       this.events();
+    },
+
+    test: function(){
+      console.log('test');
     },
 
     singleProject: function(id) {
@@ -29,6 +35,6 @@ var AppRouter = Backbone.Router.extend({
 
 // App Init
 var TotemApp    = new app.AppView(),
-    TotemRouter = new AppRouter();
+    TotemRouter = new app.AppRouter();
 
 Backbone.history.start({ pushState: true });

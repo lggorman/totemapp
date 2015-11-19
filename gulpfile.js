@@ -3,6 +3,7 @@ var gulp          = require('gulp'),
     sourcemaps    = require('gulp-sourcemaps'),
     postcss       = require('gulp-postcss'),
     autoprefixer  = require('autoprefixer'),
+    modRewrite    = require('connect-modrewrite'),
     wiredep       = require('wiredep').stream;
 
 gulp.task('css', function () {
@@ -23,6 +24,9 @@ gulp.task('serve', function(){
     port: 9000,
     server: {
       baseDir: 'app',
+      middleware: modRewrite([
+        '!\\.\\w+$ /index.html [L]'
+      ]),
       routes: {
         '/bower_components': 'bower_components'
       }
