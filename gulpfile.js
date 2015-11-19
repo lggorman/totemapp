@@ -44,5 +44,5 @@ gulp.task('bower', function(){
 });
 
 gulp.task('default', ['serve']);
-gulp.task('dev', ['serve']);
+gulp.task('dev', ['serve', 'bower']);
 gulp.task('build', ['bower']);
