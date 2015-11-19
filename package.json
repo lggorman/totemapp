@@ -1,0 +1,24 @@
+{
+  "name": "totemapp",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lggorman/totemapp.git"
+  },
+  "authors": [
+    "Linda Gorman <linda.gorman@upstatement.com>",
+    "Regis Biron <regis.biron@upstatement.com>"
+  ],
+  "license": "(MIT)",
+  "bugs": {
+    "url": "https://github.com/lggorman/totemapp/issues"
+  },
+  "homepage": "https://github.com/lggorman/totemapp#readme",
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "gulp": "^3.9.0",
+    "gulp-postcss": "^6.0.1",
+    "wiredep": "^2.2.2"
+  }
+}

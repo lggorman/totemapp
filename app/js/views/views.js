@@ -34,15 +34,15 @@ app.SingleProjectView = Backbone.View.extend({
   createOnEnter: function( event ) {
     var sectionName = $('#new-section').val();
     var projectId = this.model.get('id');
-    app.Sections.create( { 
-      project_id : projectId, 
+    app.Sections.create( {
+      project_id : projectId,
       title : sectionName
     } );
     $('#new-section').val('');
-  }, 
+  },
 
   render: function() {
-    this.$el.append(this.template (this.model.toJSON()) ); 
+    this.$el.append(this.template (this.model.toJSON()) );
     app.Sections.each(function(item) {
       this.renderSection(item);
     }, this);
@@ -58,15 +58,14 @@ app.SingleProjectView = Backbone.View.extend({
 });
 
 app.ProjectView = Backbone.View.extend({
-  
-  tagname: 'li',
+
+  el: '#project-list',
 
   template: _.template( $('#project-template').html() ),
 
   events: {
     'click #delete-project': 'deleteProject',
     'click #open-project': 'singleProjectView'
-
   },
 
   deleteProject: function(event) {
@@ -85,7 +84,7 @@ app.ProjectView = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.listenTo(this.model, 'change', this.render);
+    this.listenTo( this.model, 'change', this.render );
   },
 
   render: function() {
@@ -123,7 +122,7 @@ app.AppView = Backbone.View.extend({
   createOnEnter: function( event ) {
     app.Projects.create( { title : this.$input.val() } );
     this.$input.val('');
-  }, 
+  },
 
   render: function() {
     app.Projects.each(function(item) {
@@ -135,13 +134,13 @@ app.AppView = Backbone.View.extend({
     var projectView = new app.ProjectView({
       model: item
     });
-    this.$el.append(projectView.render().el );
+    this.$el.append(projectView.render().el);
   }
 
 });
 
 app.SectionView = Backbone.View.extend({
-  
+
   tagname: 'li',
 
   template: _.template( $('#section-template').html() ),
