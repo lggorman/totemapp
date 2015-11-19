@@ -2,6 +2,11 @@ var app = app || {};
 
 app.Projects = new ProjectList();
 
+/**
+* Single Project View
+* @param  {}
+* @return {}
+*/
 app.SingleProjectView = Backbone.View.extend({
   el: '#totemapp',
 
@@ -57,15 +62,21 @@ app.SingleProjectView = Backbone.View.extend({
 
 });
 
+/**
+* Project View
+* @param  {}
+* @return {}
+*/
 app.ProjectView = Backbone.View.extend({
 
-  el: '#project-list',
+  tagname: 'li',
 
   template: _.template( $('#project-template').html() ),
 
   events: {
     'click #delete-project': 'deleteProject',
     'click #open-project': 'singleProjectView'
+
   },
 
   deleteProject: function(event) {
@@ -84,7 +95,7 @@ app.ProjectView = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.listenTo( this.model, 'change', this.render );
+    this.listenTo(this.model, 'change', this.render);
   },
 
   render: function() {
@@ -94,6 +105,11 @@ app.ProjectView = Backbone.View.extend({
 
 });
 
+/**
+* App View
+* @param  {}
+* @return {}
+*/
 app.AppView = Backbone.View.extend({
   el: '#totemapp',
 
@@ -134,11 +150,16 @@ app.AppView = Backbone.View.extend({
     var projectView = new app.ProjectView({
       model: item
     });
-    this.$el.append(projectView.render().el);
+    this.$el.append(projectView.render().el );
   }
 
 });
 
+/**
+* Section View
+* @param  {}
+* @return {}
+*/
 app.SectionView = Backbone.View.extend({
 
   tagname: 'li',

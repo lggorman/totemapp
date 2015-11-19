@@ -1,17 +1,8 @@
- /**
-  * New App view
-  * @param  {}
-  * @return {}
-  */
- $(function(){
-    new app.AppView();
-  });
-
-  /**
-  * Routes
-  * @param  {}
-  * @return {}
-  */
+/**
+* Routes
+* @param  {}
+* @return {}
+*/
 var AppRouter = Backbone.Router.extend({
 
     routes:{
@@ -34,8 +25,10 @@ var AppRouter = Backbone.Router.extend({
         // TotemApp.navigate(e.target.pathname, true);
       });
     }
-
 });
 
-var TotemRouter = new AppRouter();
-Backbone.history.start();
+// App Init
+var TotemApp    = new app.AppView(),
+    TotemRouter = new AppRouter();
+
+Backbone.history.start({ pushState: true });

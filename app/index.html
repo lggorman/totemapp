@@ -1,64 +1,74 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-  <title>Testing</title>
+  <head>
+    <title>Totem App</title>
 
-    <!-- load the bootstrap stylesheet -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
+      <!-- load the bootstrap stylesheet -->
+      <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="build/css/style.css">
 
-    <!-- build:js js/vendor/modernizr.js -->
-    <!-- <script src="/bower_components/modernizr/modernizr.js"></script> -->
-    <!-- endbuild -->
-</head>
-<body>
+      <!-- build:js build/js/vendor/modernizr.js -->
+      <script src="/bower_components/modernizr/modernizr.js"></script>
+      <!-- endbuild -->
+  </head>
+  <body>
 
-<section id="totemapp">
-  <!-- <button id="new-project">Make a new project</button> -->
-  <section id="projects">
-    <input id="new-project"><button id="add-new">Add New</button>
-    <div id="project-list"></div>
-  </section>
-</section>
-
-  <!-- templates -->
-  <script type="text/template" id="single-project-template">
-    <h2><%= title %></h2>
-    <section id="sections">
-      <input id="new-section"><button id="add-new-section">Add New</button>
-      <div id="section-list"></div>
+    <!-- Totem App -->
+    <!-- ===================================== -->
+    <section id="totemapp">
+      <!-- <button id="new-project">Make a new project</button> -->
+      <section id="projects">
+        <input id="new-project"><button id="add-new">Add New</button>
+          <div id="project-list"></div>
+      </section>
     </section>
-  </script>
 
-  <script type="text/template" id="project-template">
-    <a href="projects/#<%= id %>" id="open-project">
-      <div class="single-project">
-        <h2><%= title %></h2>
-        <a href="#" id="delete-project">Delete</a>
-      </div>
-     </a>
-  </script>
 
-  <script type="text/template" id="section-template">
+    <!-- Templates -->
+    <!-- ===================================== -->
+
+    <!-- Single Project Template -->
+    <!-- ===================================== -->
+    <script type="text/template" id="single-project-template">
+      <h2><%= title %></h2>
+
+      <section id="sections">
+        <input id="new-section"><button id="add-new-section">Add New</button>
+        <div id="section-list">
+        </div>
+      </section>
+    </script>
+
+    <!-- Project Template -->
+    <!-- ===================================== -->
+    <script type="text/template" id="project-template">
+      <a href="#" id="open-project">
+        <div class="single-project"><h2><%- title %></h3><br><a href="#" id="delete-project">Delete</a></div>
+      </a>
+    </script>
+
+    <!-- Section Template -->
+    <!-- ===================================== -->
+    <script type="text/template" id="section-template">
       <div class="single-section">
         <h2><%= title %></h2>
         <br>
         <a href="#" id="delete-section">Delete</a>
       </div>
-  </script>
-  <!-- /templates -->
+    </script>
 
-  <!-- bower:js -->
-  <script src="/bower_components/jquery/dist/jquery.js"></script>
-  <script src="/bower_components/underscore/underscore.js"></script>
-  <script src="/bower_components/backbone/backbone.js"></script>
-  <!-- endbower -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/underscore/underscore.js"></script>
+    <script src="/bower_components/backbone/backbone.js"></script>
+    <!-- endbower -->
 
-
-  <script type="text/javascript" src="js/models/models.js"></script>
-  <script type="text/javascript" src="js/collections/collections.js"></script>
-  <script type="text/javascript" src="js/views/views.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
-</body>
+    <!-- build:js build/js/build.app.js -->
+    <script type="text/javascript" src="js/models/models.js"></script>
+    <script type="text/javascript" src="js/collections/collections.js"></script>
+    <script type="text/javascript" src="js/views/views.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <!-- endbuild -->
+  </body>
 </html>

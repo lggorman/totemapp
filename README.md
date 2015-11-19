@@ -8,3 +8,7 @@ git clone git@github.com:lggorman/totemapp.git
 bower install
 npm install
 ```
+### Running/Development
+```
+gulp dev
+```
