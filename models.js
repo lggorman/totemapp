@@ -22,3 +22,16 @@ SectionList = Backbone.Collection.extend({
 	model: Section,
 	url: 'http://totem-backend12.herokuapp.com/sections'
 });
+
+Version = Backbone.Model.extend({
+	urlRoot: 'http://totem-backend12.herokuapp.com/versions',
+	defaults: {
+	    section_id: '',
+	    file: ''
+	}
+});
+
+VersionList = Backbone.Collection.extend({
+	model: Version,
+	url: 'http://totem-backend12.herokuapp.com/versions'
+});

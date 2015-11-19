@@ -9,6 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+  <script type="text/javascript" src="backbone-model-file-upload.js"></script>
   
 
 </head>
@@ -35,13 +36,26 @@
       </div>
     </section>
   </script>
+  <script type="text/template" id="single-section-template">
+    <h2><%- title %></h2>
+    <section id="versions">
+      <input id="new-version" type="file"><button id="add-new-version">Add New</button>
+      <div id="version-list">
+      </div>
+    </section>
+  </script>
   <script type="text/template" id="project-template">
       <a href="#" id="open-project">
         <div class="single-project"><h2><%- title %></h3><br><a href="#" id="delete-project">Delete</a></div>
       </a>
   </script>
   <script type="text/template" id="section-template">
-      <div class="single-section"><h2><%- title %></h2><br><a href="#" id="delete-section">Delete</a></div>
+      <a href="#" id="open-section">
+        <div class="single-section"><h2><%- title %></h2><br><a href="#" id="delete-section">Delete</a></div>
+      </a>
+  </script>
+  <script type="text/template" id="version-template">
+      <div class="single-version"><br><a href="#" id="delete-version">Delete</a></div>
   </script>
 
   <script type="text/javascript" src="models.js"></script>

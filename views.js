@@ -2,6 +2,52 @@ var app = app || {};
 
 app.Projects = new ProjectList();
 
+app.SingleSectionView = Backbone.View.extend({
+  el: '#totemapp',
+
+  template: _.template( $('#single-section-template').html() ),
+
+  events: {
+    'click #add-new-version' : 'createOnEnter'
+  },
+
+  initialize: function() {
+    app.Versions = new VersionList();
+    app.Versions.fetch({
+      data: { section_id: this.model.get('id') },
+      processData: true
+    });
+    this.listenTo(app.Versions, 'add', this.addOne);
+  },
+
+  addOne: function(version) {
+    var view = new app.VersionView({model: version});
+    $('#version-list').append(view.render().el);
+  },
+
+  createOnEnter: function( event ) {
+    var sectionId = this.model.get('id');
+    version = app.Versions.create({section_id : sectionId});
+    version.set('file', $('#new-version').val());
+    $('#new-version').val('');
+  }, 
+
+  render: function() {
+    this.$el.append(this.template (this.model.toJSON()) ); 
+    app.Versions.each(function(item) {
+      this.renderVersion(item);
+    }, this);
+  },
+
+  renderVersion: function(item) {
+    var versionView = new app.VersionView({
+      model: item
+    });
+    this.$el.append(versionView.render().el );
+  }
+
+});
+
 app.SingleProjectView = Backbone.View.extend({
   el: '#totemapp',
 
@@ -148,6 +194,7 @@ app.SectionView = Backbone.View.extend({
 
   events: {
     'click #delete-section': 'deleteSection',
+    'click #open-section': 'singleSectionView'
   },
 
   deleteSection: function(event) {
@@ -158,6 +205,43 @@ app.SectionView = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.model, 'change', this.render);
+  },
+
+  render: function() {
+    this.$el.html(this.template ( this.model.toJSON()) );
+    return this;
+  },
+
+  singleSectionView: function(event) {
+    event.preventDefault();
+    $('#sections').hide();
+    var singleSectionView = new app.SingleSectionView({
+      model: this.model
+    });
+    $('#totemapp').append(singleSectionView.render() );
+  }
+
+});
+
+app.VersionView = Backbone.View.extend({
+  
+  tagname: 'li',
+
+  template: _.template( $('#version-template').html() ),
+
+  events: {
+    'click #delete-version': 'deleteVersion',
+  },
+
+  deleteVersion: function(event) {
+    event.preventDefault();
+    this.model.destroy();
+    this.remove();
+  },
+
+  initialize: function() {
+    this.listenTo(this.model, 'change', this.render);
+    console.log(this.model.attributes);
   },
 
   render: function() {
