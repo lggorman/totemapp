@@ -1,6 +1,21 @@
-var gulp        = require('gulp'),
-    browserSync = require('browser-sync'),
-    wiredep     = require('wiredep').stream;
+var gulp          = require('gulp'),
+    browserSync   = require('browser-sync'),
+    sourcemaps    = require('gulp-sourcemaps'),
+    postcss       = require('gulp-postcss'),
+    autoprefixer  = require('autoprefixer'),
+    wiredep       = require('wiredep').stream;
+
+gulp.task('css', function () {
+  var processors = [
+    autoprefixer
+  ];
+  return gulp.src('app/css/*.css')
+    .pipe(sourcemaps.init())
+    .pipe(postcss(processors))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('app/build/css'))
+    .pipe(browserSync.stream());
+});
 
 gulp.task('serve', function(){
   browserSync({
@@ -13,9 +28,13 @@ gulp.task('serve', function(){
       }
     }
   });
+
+  gulp.watch("app/css/**/*.css", ['css']);
+  gulp.watch("app/js/**/*.js").on('change', browserSync.reload);
+  gulp.watch("app/*.html").on('change', browserSync.reload);
 });
 
-gulp.task('build', function(){
+gulp.task('bower', function(){
   gulp.src('app/*.html')
     .pipe(wiredep({
       directory: 'bower_components',
@@ -23,3 +42,7 @@ gulp.task('build', function(){
     }))
     .pipe(gulp.dest('app'));
 });
+
+gulp.task('default', ['serve']);
+gulp.task('dev', ['serve']);
+gulp.task('build', ['bower']);
