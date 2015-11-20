@@ -28,6 +28,7 @@ app.SingleSectionView = Backbone.View.extend({
   createOnEnter: function( event ) {
     var sectionId = this.model.get('id');
     version = app.Versions.create({section_id : sectionId});
+    console.log($('#new-version').val());cd
     version.set('file', $('#new-version').val());
     $('#new-version').val('');
   },
@@ -75,12 +76,6 @@ app.SingleProjectView = Backbone.View.extend({
   addOne: function(section) {
     var view = new app.SectionView({model: section});
     $('#section-list').append(view.render().el);
-  },
-
-  newAttributes: function() {
-    return {
-      title: this.$input.val().trim()
-    };
   },
 
   createOnEnter: function( event ) {
@@ -176,12 +171,6 @@ app.AppView = Backbone.View.extend({
     $('#project-list').append(view.render().el);
   },
 
-  newAttributes: function() {
-    return {
-      title: this.$input.val().trim()
-    };
-  },
-
   createOnEnter: function( event ) {
     app.Projects.create( { title : this.$input.val() } );
     this.$input.val('');
@@ -262,7 +251,6 @@ app.VersionView = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.model, 'change', this.render);
-    console.log(this.model.attributes);
   },
 
   render: function() {
