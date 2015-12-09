@@ -26,11 +26,15 @@ app.SingleSectionView = Backbone.View.extend({
   },
 
   createOnEnter: function( event ) {
+    var values = {};
+    _.each($('form').serializeArray(), function(input){
+      values[ input.name ] = input.value;
+    })
     var sectionId = this.model.get('id');
-    version = app.Versions.create({section_id : sectionId});
-    console.log($('#new-version').val());cd
-    version.set('file', $('#new-version').val());
-    $('#new-version').val('');
+    values['section_id'] = sectionId;
+    app.Versions.create(values, { iframe: true,
+                              files: this.$('form :file'),
+                              data: values });
   },
 
   render: function() {

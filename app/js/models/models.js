@@ -1,12 +1,12 @@
 Project = Backbone.Model.extend({
-	urlRoot: 'http://totem-backend12.herokuapp.com/projects',
+	urlRoot: 'http://localhost:4567/projects',
 	defaults: {
 	    title: ''
 	}
 });
 
 Section = Backbone.Model.extend({
-	urlRoot: 'http://totem-backend12.herokuapp.com/sections',
+	urlRoot: 'http://localhost:4567/sections',
 	defaults: {
 	    title: '',
 	    project_id: ''
@@ -14,7 +14,7 @@ Section = Backbone.Model.extend({
 });
 
 Version = Backbone.Model.extend({
-  urlRoot: 'http://totem-backend12.herokuapp.com/versions',
+  urlRoot: 'http://localhost:4567/versions',
   defaults: {
       section_id: '',
       file: ''

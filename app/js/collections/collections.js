@@ -1,14 +1,14 @@
 ProjectList = Backbone.Collection.extend({
   model: Project,
-  url: 'http://totem-backend12.herokuapp.com/projects'
+  url: 'http://localhost:4567/projects'
 });
 
 SectionList = Backbone.Collection.extend({
   model: Section,
-  url: 'http://totem-backend12.herokuapp.com/sections'
+  url: 'http://localhost:4567/sections'
 });
 
 VersionList = Backbone.Collection.extend({
   model: Version,
-  url: 'http://totem-backend12.herokuapp.com/versions'
+  url: 'http://localhost:4567/versions'
 });

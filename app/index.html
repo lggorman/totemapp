@@ -45,7 +45,9 @@
     <script type="text/template" id="single-section-template">
       <h2><%- title %></h2>
       <section id="versions">
-        <input id="new-version" type="file"><button id="add-new-version">Add New</button>
+        <form enctype="multipart/form-data">
+          <input id="new-version" type="file" name="file"><button id="add-new-version">Add New</button>
+        </form>
         <div id="version-list">
         </div>
       </section>
@@ -74,7 +76,7 @@
     <!-- Version Template -->
     <!-- ===================================== -->
     <script type="text/template" id="version-template">
-      <div class="single-version"><br><a href="#" id="delete-version">Delete</a></div>
+      <div class="single-version" style="background-size: cover; background-image: url('http://localhost:4567<%- file.url %>')"><br><a href="#" id="delete-version">Delete</a></div>
     </script>
 
     <!-- bower:js -->
@@ -84,6 +86,7 @@
     <!-- endbower -->
 
     <!-- build:js build/js/build.app.js -->
+    <script type="text/javascript" src="/js/jquery.iframe-transport.js"></script>
     <script type="text/javascript" src="/js/backbone-model-file-upload.js"></script>
     <script type="text/javascript" src="/js/models/models.js"></script>
     <script type="text/javascript" src="/js/collections/collections.js"></script>
