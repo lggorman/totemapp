@@ -1,11 +1,26 @@
+var $ = require('jquery');
+var Backbone = require('backbone');
+var _ = require('underscore');
+
+Backbone.$ = $;
+
 var app = app || {};
+
+// Collections
+var ProjectList = require('./collections/project-list'),
+    VersionList = require('./collections/version-list'),
+    SectionList = require('./collections/section-list');
+
+// Templates
+var SingleSectionTemplate = require('./templates/single-section.html');
 
 app.Projects = new ProjectList();
 
 app.SingleSectionView = Backbone.View.extend({
   el: '#totemapp',
 
-  template: _.template( $('#single-section-template').html() ),
+  // template: _.template( $('#single-section-template').html() ),
+  template: SingleSectionTemplate,
 
   events: {
     'click #add-new-version' : 'createOnEnter'
@@ -28,7 +43,7 @@ app.SingleSectionView = Backbone.View.extend({
   createOnEnter: function( event ) {
     var sectionId = this.model.get('id');
     version = app.Versions.create({section_id : sectionId});
-    console.log($('#new-version').val());cd
+    console.log($('#new-version').val());
     version.set('file', $('#new-version').val());
     $('#new-version').val('');
   },
