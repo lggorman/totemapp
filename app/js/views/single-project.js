@@ -17,7 +17,6 @@ Backbone.$ = $;
 module.exports = Backbone.View.extend({
   el: '#totemapp',
 
-  // template: _.template( $('#single-project-template').html() ),
   template: SingleProjectTemplate,
 
   events: {

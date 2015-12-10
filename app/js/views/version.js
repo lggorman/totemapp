@@ -11,7 +11,6 @@ module.exports = Backbone.View.extend({
 
   tagname: 'li',
 
-  // template: _.template( $('#version-template').html() ),
   template: VersionTemplate,
 
   events: {
