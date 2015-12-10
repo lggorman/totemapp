@@ -39,7 +39,7 @@ module.exports = Backbone.View.extend({
 
   createOnEnter: function( event ) {
     var sectionId = this.model.get('id');
-    version = app.Versions.create({section_id : sectionId});
+    version = Versions.create({section_id : sectionId});
     console.log($('#new-version').val());
     version.set('file', $('#new-version').val());
     $('#new-version').val('');
@@ -47,7 +47,7 @@ module.exports = Backbone.View.extend({
 
   render: function() {
     this.$el.append(this.template (this.model.toJSON()) );
-    app.Versions.each(function(item) {
+    Versions.each(function(item) {
       this.renderVersion(item);
     }, this);
   },
