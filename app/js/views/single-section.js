@@ -5,13 +5,10 @@ var _ = require('underscore');
 // Collections
 var VersionList = require('../collections/version-list');
 
-// Models
-var Version = require('../models/version');
-
-// View
+// Views
 var VersionView = require('./version');
 
-// Template
+// Templates
 var SingleSectionTemplate = require('../templates/single-section.html');
 
 Backbone.$ = $;

@@ -2,7 +2,7 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 var _ = require('underscore');
 
-// Template
+// Templates
 var VersionTemplate = require('../templates/version.html');
 
 Backbone.$ = $;

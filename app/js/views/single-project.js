@@ -5,11 +5,11 @@ var _ = require('underscore');
 // Collections
 var SectionList = require('../collections/section-list');
 
-// View
+// Views
 var SingleSectionView = require('./single-section');
 var SectionView = require('./section');
 
-// Template
+// Templates
 var SingleProjectTemplate = require('../templates/single-project.html');
 
 Backbone.$ = $;

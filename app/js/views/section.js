@@ -2,10 +2,10 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 var _ = require('underscore');
 
-// View
+// Views
 var SingleSectionView = require('./single-section');
 
-// Template
+// Templates
 var SectionTemplate = require('../templates/section.html');
 
 Backbone.$ = $;

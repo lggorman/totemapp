@@ -5,7 +5,7 @@ var _ = require('underscore');
 // Views
 var SingleProjectView = require('./single-project');
 
-// Template
+// Templates
 var ProjectTemplate = require('../templates/project.html');
 
 Backbone.$ = $;

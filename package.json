@@ -17,6 +17,7 @@
   "homepage": "https://github.com/lggorman/totemapp#readme",
   "dependencies": {
     "backbone": "^1.2.3",
+    "backbone-model-file-upload": "^1.0.0",
     "backbone.statemanager": "0.0.7",
     "browserify": "^12.0.1",
     "jquery": "^2.1.4"
