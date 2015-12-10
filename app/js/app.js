@@ -1,6 +1,12 @@
-var app = app || {};
+var $ = require('jquery');
+var Backbone = require('backbone');
+var _ = require('underscore');
+
+Backbone.$ = $;
+
+var TotemApp = require('./views/totemapp');
 
 // App Init
-var TotemApp = new app.AppView();
+var totemapp = new TotemApp();
 
 Backbone.history.start({ pushState: true });

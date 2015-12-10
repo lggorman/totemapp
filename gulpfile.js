@@ -7,6 +7,7 @@ var gulp            = require('gulp'),
     uglify          = require('gulp-uglify'),
     buffer          = require('vinyl-buffer'),
     browserSync     = require('browser-sync'),
+    modRewrite      = require('connect-modrewrite'),
     sourcemaps      = require('gulp-sourcemaps'),
     jstify          = require('jstify'),
     postcss         = require('gulp-postcss'),
@@ -27,7 +28,7 @@ gulp.task('browserify', function () {
     .pipe(source('app.build.js'))
     .pipe(buffer())
     .pipe(uglify())
-    .pipe(gulp.dest('./build/js'));
+    .pipe(gulp.dest('./app/build/js'));
 });
 
 // Browserify watchify
@@ -44,14 +45,14 @@ gulp.task('watchify', function() {
     return bundler.bundle()
       .on('error', gutil.log.bind(gutil, 'Browserify Error'))
       .pipe(source('app.build.js'))
-      .pipe(gulp.dest('./build/js'))
+      .pipe(gulp.dest('./app/build/js'))
       .pipe(browserSync.stream({once: true}));
   }
 
   return rebundle();
 });
 
-gulp.task('serve', function(){
+gulp.task('browser-sync', function(){
   browserSync({
     notify: false,
     port: 9000,
@@ -83,7 +84,7 @@ gulp.task('css', function () {
     .pipe(sourcemaps.init())
     .pipe(postcss(processors))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./build/css'))
+    .pipe(gulp.dest('./app/build/css'))
     .pipe(browserSync.stream());
 });
 
