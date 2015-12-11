@@ -14,7 +14,6 @@ module.exports = Backbone.View.extend({
 
   tagname: 'li',
 
-  // template: _.template( $('#section-template').html() ),
   template: SectionTemplate,
 
   events: {

@@ -21,6 +21,7 @@ module.exports = Backbone.View.extend({
 
   initialize: function() {
     this.$input = this.$('#new-project');
+    this.$projectList = this.$('#project-list');
     Projects.fetch();
     this.render();
     this.listenTo(Projects, 'add', this.addOne);
@@ -28,7 +29,7 @@ module.exports = Backbone.View.extend({
 
   addOne: function(project) {
     var view = new ProjectView({model: project});
-    $('#project-list').append(view.render().el);
+    this.$projectList.append(view.render().el);
   },
 
   createOnEnter: function( event ) {

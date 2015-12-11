@@ -12,9 +12,9 @@ Backbone.$ = $;
 
 module.exports = Backbone.View.extend({
 
-  tagname: 'li',
+  tagName: 'li',
+  className: 'project-item',
 
-  // template: _.template( $('#project-template').html() ),
   template: ProjectTemplate,
 
   events: {

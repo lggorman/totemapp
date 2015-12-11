@@ -15,7 +15,7 @@ var SingleProjectTemplate = require('../templates/single-project.html');
 Backbone.$ = $;
 
 module.exports = Backbone.View.extend({
-  el: '#totemapp',
+  el: '#projects',
 
   template: SingleProjectTemplate,
 
