@@ -40,7 +40,7 @@ module.exports = Backbone.View.extend({
 
   states: {
     home: {
-      enter: function(){},
+      enter: function(options){console.log(options);},
       exit: function(){},
       transitions:{}
     }

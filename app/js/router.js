@@ -2,12 +2,12 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 var _ = require('underscore');
 
-var SingleProjectView = require('./views/single-project');
+var TotemAppView = require('./views/totemapp');
 
 module.exports = Backbone.Router.extend({
   initialize: function(el){
     this.el = el;
-    this.projectView = new SingleProjectView();
+    this.totemAppView = new TotemAppView();
   },
 
   routes: {
@@ -15,6 +15,6 @@ module.exports = Backbone.Router.extend({
   },
 
   home: function(){
-    Backbone.trigger('manager:goto', this.projectView, 'home');
+    Backbone.trigger('manager:goto', this.totemAppView, 'home');
   }
 });
