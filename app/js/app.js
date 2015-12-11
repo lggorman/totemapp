@@ -1,40 +1,12 @@
-var app = app || {};
-/**
-* Routes
-* @param  {}
-* @return {}
-*/
-  app.AppRouter = Backbone.Router.extend({
+var $ = require('jquery');
+var Backbone = require('backbone');
+var _ = require('underscore');
 
-    routes:{
-        'projects/:id' : 'singleProject',
-        'test' : 'test'
-    },
+Backbone.$ = $;
 
-    initialize: function(){
-      // console.log('initialize app');
-      this.events();
-    },
-
-    test: function(){
-      console.log('test');
-    },
-
-    singleProject: function(id) {
-      console.log(id);
-    },
-
-    events: function () {
-      $('a').click(function (e) {
-        e.preventDefault();
-        console.log('test');
-        // TotemApp.navigate(e.target.pathname, true);
-      });
-    }
-});
+var TotemApp = require('./views/totemapp');
 
 // App Init
-var TotemApp    = new app.AppView(),
-    TotemRouter = new app.AppRouter();
+var totemapp = new TotemApp();
 
 Backbone.history.start({ pushState: true });
